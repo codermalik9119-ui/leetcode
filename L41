@@ -1,0 +1,20 @@
+class Solution {
+    public int firstMissingPositive(int[] nums) {
+        int[] posarr = Arrays.stream(nums)
+                                   .filter(n -> n > 0)
+                                   .toArray();
+            Arrays.sort(posarr);
+            int t=1;
+            for(int n:posarr){
+                if(n==t){
+                    t++;
+                }
+                else if(n>t){
+                    return t;
+                }
+            }
+           
+           return t; 
+        
+    }
+}
